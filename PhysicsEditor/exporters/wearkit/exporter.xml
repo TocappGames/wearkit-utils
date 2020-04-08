@@ -1,0 +1,30 @@
+<exporter>
+	<name>wearkt</name>
+	<displayName>WearKit (JSON)</displayName>
+    <description>Exporter for WearKit, JSON</description>
+	<version>1.0</version>
+	<yAxisDirection>down</yAxisDirection>
+	<physicsEngine>generic</physicsEngine>
+	<template>wearkit.json</template>
+	<fileExtension>json</fileExtension>
+	<anchorPoint>
+		<enabled>no</enabled>
+	</anchorPoint>
+	<origin>
+        <type>fixed</type>
+		<relX>0.0</relX>
+		<relY>1.0</relY>
+    </origin>
+    <!-- Circle support does not work as with standard box2d - you can't change the center
+         or add more than one circle to a shape. This is why it is disabled for now -->
+    <supportsCircles>no</supportsCircles>
+	<body>
+	</body>
+	<global>
+	</global>
+	<body>
+	</body>
+	<fixture>
+	</fixture>
+</exporter>
+

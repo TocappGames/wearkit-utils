@@ -1,0 +1,15 @@
+[ 
+	{% for body in bodies %}
+    		{% if not forloop.first %}, {% endif %}
+    		[
+	        {% for fixture in body.fixtures %}
+			{% if not forloop.first %} ,{% endif %}
+				{% for polygon in fixture.polygons %}{% if not forloop.first %} ,{% endif %}
+			        [
+					{% for point in polygon %} {% if not forloop.first %}, {% endif %} [ {{point.x}}, {{point.y}} ] {% endfor %}
+				]
+			{% endfor %}
+		{% endfor %}
+    		]
+	{% endfor %}
+]
