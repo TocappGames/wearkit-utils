@@ -11,20 +11,57 @@
 		<enabled>no</enabled>
 	</anchorPoint>
 	<origin>
+        <!-- may be: anchorPoint or fixed -->
         <type>fixed</type>
-		<relX>0.0</relX>
-		<relY>1.0</relY>
+        <relX>0.5</relX>
+        <relY>0.5</relY>
     </origin>
     <!-- Circle support does not work as with standard box2d - you can't change the center
          or add more than one circle to a shape. This is why it is disabled for now -->
     <supportsCircles>no</supportsCircles>
 	<body>
+		<parameter>
+			<name>name</name>
+			<displayName>Name</displayName>
+			<type>string</type>
+			<default>body</default>
+		</parameter>
+		<parameter>
+			<name>bitmap</name>
+			<displayName>Bitmap (image)</displayName>
+			<type>string</type>
+			<default>body</default>
+		</parameter>
 	</body>
 	<global>
 	</global>
 	<body>
 	</body>
 	<fixture>
+		<parameter>
+			<name>density</name>
+			<displayName>Density</displayName>
+			<type>float</type>
+			<min>-1000</min>
+			<max>1000</max>
+			<default>2.0</default>
+		</parameter>
+		<parameter>
+			<name>restitution</name>
+			<displayName>Restitution</displayName>
+			<type>float</type>
+			<min>0</min>
+			<max>1000</max>
+			<default>0.0</default>
+		</parameter>
+		<parameter>
+			<name>friction</name>
+			<displayName>Friction</displayName>
+			<type>float</type>
+			<min>0</min>
+			<max>1000</max>
+			<default>0.0</default>
+		</parameter>
 	</fixture>
 </exporter>
 

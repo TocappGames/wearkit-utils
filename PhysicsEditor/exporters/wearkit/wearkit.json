@@ -1,15 +1,21 @@
-[ 
-	{% for body in bodies %}
-    		{% if not forloop.first %}, {% endif %}
-    		[
-	        {% for fixture in body.fixtures %}
-			{% if not forloop.first %} ,{% endif %}
-				{% for polygon in fixture.polygons %}{% if not forloop.first %} ,{% endif %}
-			        [
-					{% for point in polygon %} {% if not forloop.first %}, {% endif %} [ {{point.x}}, {{point.y}} ] {% endfor %}
-				]
-			{% endfor %}
-		{% endfor %}
-    		]
-	{% endfor %}
-]
+{ {% for body in bodies %}
+    {% if not forloop.first %}, {% endif %}
+    "{{body.name}}": { 
+        "bitmap": "{{body.bitmap}}",
+        "fixtures": [
+        {% for fixture in body.fixtures %}
+        
+            {% for polygon in fixture.polygons %}{% if not forloop.first %} ,{% endif %}
+                {
+                  "parameters": {
+                      "density": {{fixture.density}},
+                      "friction": {{fixture.friction}},
+                      "restitution": {{fixture.restitution}}
+                  },
+                  "shape": [ {% for point in polygon %} {% if not forloop.first %}, {% endif %} {"x": {{point.x}}, "y": {{point.y}} } {% endfor %} ]
+                }
+            {% endfor %}
+        {% endfor %}
+    ]
+  }{% endfor %}
+}
